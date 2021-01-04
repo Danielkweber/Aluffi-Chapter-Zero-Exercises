@@ -1,0 +1,144 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage[margin = 1in]{geometry}
+\usepackage[mathscr]{euscript}
+
+\title{Honors Algebra HW12}
+\author{Daniel Weber dweber11}
+
+\newcommand{\Solution}{\textit{Solution: }}
+
+
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item[\textbf{Problem 4.14}]
+        \begin{quote}
+            \Solution First, we note that $A_n$ is simple for $n \geq 5$. Since $Z(A_n)$ is a normal subgroup, we can be sure that the claim is true for $n \geq 5$. Now, we show
+            the result for $A_4$. We tackle this by first considering the situation in $S_4$. First, consider a non-trivial even permutation $\sigma$. Since the permutation is non-trivial,
+            there exists a pair $i, j, \: i < j$ such that $\sigma(i) = j$. Now, consider the permutation $\tau = (jk)$ where $k$ is another element in our set being permuted. Now, I claim
+            $\sigma \tau(i) = j$ while $\tau\sigma(i) = k$. This proves that there is at least one element in $S_4$ which our permutation does not commute with. Now, we take our discussion to 
+            $A_4$. Note that since we are in $A_4$, there are two other elements $m, l$ which are distinct from $j, k$. Now, I claim that the permutation $(ml)(jk)$ is even and does not commute 
+            with $\sigma$. Now, we have shown that the center of $A_n$ is trivial for all $n \geq 4$. \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 4.18}]
+        \begin{quote}
+            \Solution Assume by contradiction that we have a subgroup $H$ with $[A_n : H] = m < n$. Now, consider the group action of $A_n$ on $A_n/H$ defined by conjugation. Due to the nature of
+            quotient groups, this group action will essentially permute the cosets of our quotient group $A_n/H$ as $aH$ will be sent to $gag^{-1}H$. 
+            Because of this, we may contruct a homomorphism $\varphi: A_n \to S_m$ where the elements being permuted in $S_m$ are the cosets of $A_n/H$. Now, consider the kernel of this homomorphism.
+            Since $A_n$ is simple, either the map is injective or trivial. Our above map is obviously not trivial because our group action of $A_n$ on $H$ will in fact permute the cosets of our quotient
+            group. Therefore, we are forced to conclude that the ker $\varphi$ = $\{e\}$ and that the map injective. However, I claim that this leads to a contradiction because there are $\frac{n!}{2}$ 
+            elements in $A_n$ and at most $(n - 1)!$ in $S_m$ becuase we have imposed the contraint that $m < n$. Since $\frac{n!}{2} > (n - 1)!$, this map cannot possibly be injective. Since the notion of
+            a subgroup of with index less than $n$ leads to a contradiction, we are forced to conclude that no such subgroup exists.
+
+            Next, we prove that $A_n$ has a subgroup of index $n$ for all $n \geq 3$. We prove this by realizing that fixing a singular element $n$ out of our elements $\{1, 2, 3, \dots, n\}$ will lead 
+            to the formation of the subgroup $A_{n-1}$ inside of $A_n$. Now, we note that the index of this subgroup is trivially $n$ (because $\frac{n!/2}{(n-1)!/2} = n$ and every element of $A_n$ which is
+            not in $A_{n - 1}$ will form a distinct coset in $A_n/A_{n - 1}$) and the proof is complete. \qedsymbol
+        \end{quote}
+        \item[\textbf{Problem 4.20}]
+        \begin{quote}
+            \Solution We begin by looking at the class formula and types of $A_5$ and realizing that the type $[2, 2, 1]$ has 15 elements of order 2. These elements are obviously of order 2 because they represent 
+            permutations that have two distinct 2-cycles and when we square a two cycle, we get back to the identity (Ex: $(ab)(cd)(ab)(cd) = e$). Now, we use Sylow III to find the number of 2-Sylow subgroups. Firstly,
+            we realize that $A_5$ is of size 60 and that the only two numbers that satisfy $2^r*m = 60$ with $2 \nmid m$ are $2^r = 4$ and $m = 15$. Sylow III then tells us that the number of 2-Sylow subgroups is a divisor
+            of $15$ and is $\equiv 1 \: \text{mod} \: 2$ (i.e. $1, 3, 5, 15$). First, we prove that we cannot have $15$ 2-Sylow subgroups. Since $2^r = 4$, realize that we are dealing with subgroups of order $4$. Since the order of the element must diviide that
+            of the group, we may only work with elements of order $1, 2, \text{and} \; 4$ when constructing our subgroups. Looking at the types of $A_5$, ($[1,1,1,1,1], [3,1,1], [2,2,1], [5]$) we realize that the only elements
+            that satisfy this constaint are the identity and our fifteen elements of order 2 as the order of elements of type $[3, 1, 1]$ is 3 and the order of the type $[5]$ is 5. Now, we realize that there are simply not
+            enough elements to contruct 15 order-4 subgroups from the 16 elements that we have. Next, we realize that each one of our subgroups contain the identity and that all other elements of our 2-Sylow subgroups will be of
+            order 2 and therefore their own inverse. Therefore, we may choose 3 distinct elements out of our $15$ order-2 elements to construct each of our 2-Sylow subgroups. Since $\frac{15}{3} = 5$, that gives us 5 2-Sylow subgroups.
+            \qedsymbol
+        \end{quote}
+        \item[\textbf{Problem 4.22}]
+        \begin{quote}
+            \Solution First, consider the subgroup $H$ of index 5 guaranteed by the result of Exercise 2.25. Similar to our idea above in Problem 4.18, we may allow $G$ to act on our subgroup $H$ and this action will permute the five cosets 
+            of $G$ (For a slightly more detailed explanation, see above). Becuause of this, we may construct a homomorphism $\beta: G \to S_5$ where the elements being permuted are the cosets of $G/H$. Now, since $G$ is simple, the kernel of 
+            this homomorphism is either $G$ or $\{e \}$. Since our map is not trivial, the kernel must be $e$ which means that our map is injective. This means that the im $\beta$ forms a subgroup of order 60 within $S_5$. Now, it suffices to show
+            that $A_5$ is the only subgroup of order 60 in $S_5$. We prove this by showing that $A_5$ is the only subgroup of index 2 in $S_5$. First, we note that $A_n$ is generated by 3-cycles. If $H \neq A_5$, then we know that at least one 
+            3-cycle is not in $H$. WLOG, assume that this 3-cycle is $(123)$. Then $H, (123)H, (123)^{-1}H$ are three distinct cosets of $H$, thus proving that $H$ is not of index 2. This means that the only subgroup of order 60 in $S_5$ is $A_5$
+            and the argument is complete. \qedsymbol
+        \end{quote}
+        \item[\textbf{Problem 5.2}]
+        \begin{quote}                
+            \Solution Consider the short exact sequence
+            \begin{center}
+                \begin{tikzcd}
+                    1 \ar[r] & N \ar[r, "\varphi"]  & G \ar[r, "\psi"]  & H \ar[r] & 1
+                \end{tikzcd}
+            \end{center}
+            We begin by noting that the definition of a short exact sequence identifies $N$ with the ker $\psi$. This fact, along with the first isomorphism theorem,
+            induces the isomorphism $H \cong G/N$, as described on pg. 228 in Aluffi. With this fact extablished, the result is immediate. First, note that Proposition 
+            3.4 in Aluffi tells us that the composition factors of a group $G$ are the collection of composition factors of a normal subgroup $N$ together with the composition
+            factors of the quotient $G/N$. Thus, the composition factors of $G$ are comprised of the composition factors of $N$ together with the composition factors of $G/N \cong H$.
+            \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 5.4}]
+        \begin{quote}
+            \Solution In order to prove that the sequence is exact, we must first show that the map from $\mathbb{Z} \to \mathbb{Z}/2\mathbb{Z}$ is surjective and then show that the 
+            image of the $\cdot 2$ homomorphism is in the kernel of this homomorphism. The first result is immediate (and trivial), any map from a group to one of its quotient groups is surjective 
+            by the univeral property of quotients. Next, we note that the image of the $\cdot 2$ homomorphism are all even numbers. All even numbers map to $0$ when taking the quotient 
+            $\mathbb{Z}/2\mathbb{Z}$ which proves that the described sequence is exact. Next, we prove that the sequence does not split. We note that for the sequence to split, the intersection of 
+            groups $N \cap H$ must be equal to $e$. However, in our case, $\mathbb{Z} \cap \mathbb{Z}/2\mathbb{Z} = \{0, 1\}$ which includes more than just the identity element. \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 5.7}]
+        \begin{quote}
+            \Solution We appeal to Proposition 5.10 to help us solve this problem. Here, we realize that the theorem states that if we find a group $H$, and a homomorphism $\theta:H \to Aut(N)$, then
+            we can contruct a semidirect product $G = N \rtimes_\theta H$ where the homomorphism $\theta_h$ will be realized as conjugation in $G$. Now, it suffices to find the group $H$ and the homomorphism
+            $\theta$ with which to contruct the semi-direct product. In order to do this, we appeal to a homomorphism that we used earlier this semester where we set $\theta: \mathbb{Z} \to Aut(N)$ such that 
+            $\theta(1) = \alpha$. We know from elsewhere in Aluffi that this is a well-defined homomorphism, therefore, Proposition 5.10 guarantees that we can express our automorphism in our semidirect product
+            such that $\alpha$ is expressed in terms of conjugation and the proof is complete. \qedsymbol
+        \end{quote}
+        \item[\textbf{Problem 5.8}]
+        \begin{quote}
+            \Solution (The argument directly mirrors that Exercise 5.2, notation will be taken from that exercise).
+            We begin by noting the theorem that if we are given $G$ and a normal subgroup $N \subseteq G$, then if $N$ is solvable and $G/N$ is solvable,
+            then $G$ is solvable. As we have shown in Exercise 5.2, $G/N \cong H$ and we are given that $N$ and $H$ are solvable. Therefore, $G$ must be solvable. 
+            
+            To show that the semi-direct product of two nilpotent groups is not necessarily nilpotent, consider the semi-direct product (constructed below) of $C_3 \rtimes C_2 \cong D_6$. Both
+            $C_3$ and $C_2$ are nilpotent as they are abelian. However, $D_6$ is not abelian and is not nilpotent because a dihedral group is nilpotent if and only if $n$ is a power of 2. 
+            \href{https://math.stackexchange.com/questions/834966/is-the-dihedral-group-d-n-nilpotent-solvable}{See proof here}. \qedsymbol
+        \end{quote}
+        \item[\textbf{Problem 5.11}]
+        \begin{quote}
+           \Solution We begin by noting that a potential presentation for the group $D_{2n}$ is $\langle r,s \vert r^n = s^2 = (sr)^2 = 1 \rangle$. We simply want to find a $\theta$ such the semidirect product
+           of $C_n \rtimes_\theta C_2$ has this same presentation.  Then, we will have expressed $D_{2n}$ as a semi-direct product as groups which permit equivalent presentations are isomorphic. Now, I claim that 
+           that $\theta$ such that $\theta_s(r^k) = r^{-k}$ and $\theta_{s^2 = e}(r^n) = r^n$ satisifes this property. Consider the multiplication 
+           \begin{align*}
+                (r, s)^2 = (r, s)(r, s) = (r\theta_s(r), s^2) = (r*r^{-1}, s^2) = (e, e) = e
+           \end{align*}
+           Now, note that 
+           \begin{align*}
+               (r, e)^n = (e, s)^2 = 1
+           \end{align*}
+           Which shows that our semi-direct product satisifies all the relations of the presentation of $D_{2n}$. Finally, note that the two generators of $C_n \rtimes_\theta C_2$ are $(r, e)$ and $(e, s)$. This means
+           that we can express present our semi-direct product as $\langle (r, e), (e, s) \vert (r, e)^n = (e, s)^2 = (r, s)^2 = 1 \rangle$. Since the groups allow for equivalent presentations they are isomorphic
+           and the proof is complete. \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 5.17}]
+        \begin{quote}
+            \Solution We know from Exercise III.2.5 that $SU(2)$ is isomorphic to all quaternions with a norm of 1. Using this fact, we contruct an isomorphism between 
+            $SU(2) \rtimes R^+$ and $\mathbb{H}^*$. Consider $\varphi: \mathbb{H}^* \to SU(2) \rtimes R^+$ such that 
+            \begin{gather*}
+                a + bi + cj + dk \mapsto (\frac{\begin{pmatrix}
+                                            a + bi & c + di \\
+                                            -c + di & a - bi
+                                          \end{pmatrix}}{||a + bi + cj + dk||}, ||a + bi + cj + dk||)
+            \end{gather*} Essentially, this means that no matter the norm of the quaternion, it will be mapped correctly into $SU(2)$ as a quaternion of $||\cdot|| = 1$
+            by Exercise 2.5 and its norm will encoded in the second entry of the product. The inverse of this operation $\psi:SU(2) \rtimes R^+ \to \mathbb{H}^*$ is defined such that
+            \begin{gather*}
+                (\frac{\begin{pmatrix}
+                    a + bi & c + di \\
+                    -c + di & a - bi
+                  \end{pmatrix}}{||a + bi + cj + dk||}, ||a + bi + cj + dk||) \mapsto a + bi + cj + dk 
+            \end{gather*}
+            Note that both of these functions are well-defined because we are dealing with non-zero quaternions whose norm is $\neq 0$. Finally, we discuss how multiplication occurs in $SU(2) \rtimes R^+$.
+            Here, we define multiplication componentwise and realize that the typical direct product is exactly what we need. The reason for this is because multiplying two matrices $\in SU(2)$ of norm 1 
+            will result in another matrix in $SU(2)$ of norm 1. Then, the multiplication of the norms in the second entry will encode the correct norm of our new matrix. Therefore, the semi-direct product is
+            in fact direct. \qedsymbol
+        \end{quote}
+    \end{enumerate}
+\end{document}

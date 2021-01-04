@@ -1,0 +1,167 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage[margin = 1in]{geometry}
+\usepackage[mathscr]{euscript}
+
+\title{Honors Algebra HW11}
+\author{Daniel Weber dweber11}
+
+\newcommand{\Solution}{\textit{Solution: }}
+
+
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item[\textbf{Problem 3.1}]
+        \begin{quote}
+            \Solution (The proof of this relies on Problem 3.2, so maybe read that one first.) We begin by noting that all normal subgroups of $\mathbb{Z}$ are of the form $n\mathbb{Z}$ for an 
+            integer $n$. Next, we note that $n\mathbb{Z}$ is cyclic of order $n$ and that proposition 3.4 tells us that $l(G) = l(N) + l(G/N)$ for a normal subgroup $N$ of $G$. We know from below that 
+            $l(n\mathbb{Z})$ is equal to the number of elements in the prime factorization of $n$. This means that we can contruct arbitrary length composition series of $\mathbb{Z}$ through different
+            choices of $n$. Thus, the result is proven. \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 3.2}]
+        \begin{quote}
+            \Solution I claim that we can recover the statement by considering a more general theorem, namely, that in a finite abelian group, every factor in its composition series has prime order. 
+            See proof of Theorem 2.7 at \href{https://kconrad.math.uconn.edu/blurbs/grouptheory/subgpseries1.pdf}{Conrad}. Using this result, the proof is immediate. First, note that every cyclic group of order $n$ is isomorphic
+            to $\mathbb{Z}/n\mathbb{Z}$. Now, note that the composition series of $\mathbb{Z}/n\mathbb{Z}$ will have factors of prime order because $\mathbb{Z}/n\mathbb{Z}$ is cyclic and therefore abelian. Finally, realize that 
+            that we can use the prime factorization of $n$ in order to contruct a composition series for $\mathbb{Z}/n\mathbb{Z}$. Let $n = p_1p_2\dots p_k$, then a composition series for $\mathbb{Z}/n\mathbb{Z}$ is given by 
+            \begin{equation*}
+                \mathbb{Z}/n\mathbb{Z} \supsetneq \langle p_1 \rangle \supsetneq \langle p_1p_2 \rangle \supsetneq \dots \supsetneq \langle p_1p_2\dots p_k \rangle = \{0\}
+            \end{equation*} this means that the composition series will be the length of the prime factorization of $n$. In the solvable case, the answer is the same. The reason for this is a direct result of Proposition 3.11 which 
+            shows that abelian series and solvable series of a group are equivalent. \qedsymbol
+        \end{quote}
+        \item[\textbf{Problem 3.10}]
+        \begin{quote}
+            \Solution We begin by proving that each $Z_i$ is normal in $G$. Argue inductively: For the base case, take $Z_1 = Z(G)$, this is obviously normal in $G$ because the elements in $Z(G)$ commute 
+            with all elements of $G \implies ghg{-1} = h$. Now, assume that all $Z_i$ are normal in $G$ up to $k - 1$, we now prove that that $Z_k$ is also normal in $G$. Note that our definition of $Z_k$ is 
+            \begin{equation*}
+                Z_k = Z(\frac{G}{Z_{k - 1}})
+            \end{equation*} This definition is equivalent to 
+            \begin{equation*}
+                Z_k = \frac{Z_k}{Z_{k - 1}}
+            \end{equation*} (by another definition of upper central series that I found online). Now, consider (by contradiction) an arbitrary element $z' \in Z_k$; if we conjugate by an arbitrary $g \in G$, we get $h = gz'g{-1}$.
+            This arbitrary $h$ cannot be a part of $Z_{k}$ for all $g$ and $z'$ because if it is, then $Z_k$ would be normal in $G$. Therefore, we can consider an $h = gz'g{-1} \notin Z_{k}$. Further, this
+            implies that this $z' \notin Z_{k-1}$ because $Z_{k-1}$ is normal in $G$. Now, consider the coset $z'Z_{k-1}$. We can conjugate this by an elements $g$ and get the coset $gz'g{-1}Z_{k-1}$ based on the
+            reasons above. However, this results in a contradiction because this coset $gz'g{-1}Z_{k-1} \notin Z(\frac{G}{Z_{k - 1}})$ which is supposed to be equivalent to $Z_k = \frac{Z_k}{Z_{k - 1}}$. Due to this
+            contradiction, we are forced to conclude that $Z_k$ is normal in $G$ and the induction is complete.
+            Now, we prove the 4 bullet points.
+\newpage
+            \begin{itemize}
+                \item \Solution
+                \begin{quote} 
+                    We begin by noting that the central series of $G/Z(G)$ is simply the central series of $G$ with every element divided by $Z(G)$.
+                    ($\Rightarrow$) If $G$ is nilpotent, then there exists some $Z_m$ in the upper central series which equals $G$. Now, by our above note, this means that for that $Z_m$, $Z_m/Z(G) = G/Z(G)$, proving that 
+                    $G/Z(G)$ is nilpotent.
+                    ($\Leftarrow$) If there is a $H_m/Z(G) = G/Z(G)$ in the central series of $G/Z(G)$ then $H_m = G$ which is in the central series of $G$. This means that $G$ is nilpotent as well.
+                \end{quote}
+                \item \Solution We begin by noting the lemma that if $|N| \leq |Z(G)|$ and $G/N$ is nilpotent, then $G$ is nilpotent. We now prove this by induction on the order of $G$. If $|G| = 1$ then $G = e$ which is trivially nilpotent.
+                Now, assume that all p-groups of order $< n$ are nilpotent. Since $G$ is a nontrivial p-group, $Z(G)$ is nontrivial as well. Since $Z(G)$ is abelian, it is nilpotent. Also, we know that $G/Z(G)$ is nilpotent by the inductive 
+                hypothesis. Since both $Z(G)$ and $G/Z(G)$ are nilpotent, $G$ is nilpotent.  
+                \item \Solution We note that another definition for a nilpotent group is that $G^{(i)} = e$ for some $i$. (Theorem 4 here: \url{http://people.math.binghamton.edu/mazur/teach/50305/5236.pdf}). Now, we just note that the definition of 
+                a solvable group is that its derived series ends with the identity. 
+                \item \Solution $A_4$ is a solvable group that is not nilpotent.
+            \end{itemize} \qed
+        \end{quote}
+        \item[\textbf{Problem 3.14}]
+        \begin{quote}
+            \Solution We consider the $K = H \cap G^{(r)}$ defined in the hint. First, note that the derived series is abelian by Proposition 3.11. Since $G$ is solvable, it has a normal series that is defined by this derived series. 
+            Every subgroup in the dervived series is normal in $G$. Therefore, $K$ is normal in $G$ because it is the intersection of two normal subgroups of $G$. Next, also note that $K \cong$ to a subgroup of $\frac{G^{(r)}}{G^{(r + 1)}}$ which is the 
+            abelian factor in the derived series. Since $K$ is isomorphic to an abelian subgroup, it itself is abelian. \qedsymbol
+        \end{quote}
+        \item[\textbf{Problem 3.16}]
+        \begin{quote}                
+            \Solution We begin by noting \textit{Burnside's Theorem}, namely, that for primes $p$, $q$, every group of order $p^aq^b$ is solvable. This means that we need 
+            only prove the results for groups whose order has a prime factorization containing three or more elements are solvable. Dealing only with orders $< 120$, these
+            numbers are 30, 42, 60, 66, 70, 78, 84, 90, 102, 105, 110, and 114. Now, we note that $A_5$ is not solvable and is of order 60. Therefore, we need not consider 
+            groups of this order. Next, we note that the \textit{Feit-Thompson Theorem} (mentioned below) states that every finite group of odd order is solvable, thus allowing
+            us to cross 105 of our list. The standard template we will use is to find a normal subgroup $N$ using the Sylow Theorems, use Lagrange's Theorem to find $[G : N]$, and 
+            then use Corollary 3.13 to show that $G$ is solvable because both $N$ and $G/N$ is solvable. I will spare you the majority of the scrap work and proceed with final results.
+            A group of size 30 can have 2-Sylow, 3-Sylow, and 5-Sylow subgroups. In all these cases, both $N$ and $G/N$ have orders guaranteed by Burnside's Theorem to be solvable. Therefore,
+            every group of order 30 is solvable. 42 has a 7-Sylow subgroup, we then apply Corollary 3.13. 66 has 11-Sylow and 33-Sylow subgroups, we again apply Corollary 3.13. 70 has 
+            a normal 35-Sylow subgroup... The other numbers on the list are checked in a similar fashion and we show that every group of order $< 120 \neq 60$ is solvable. \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 3.17}]
+        \begin{quote}
+            \Solution The Feit-Thompson Theorem states that if a finite group is of odd order, then it is solvable. Note that the contrapositive (and hence equivalent)
+            of this statement is, "If a group is not solvable, then it is of even order." Now, we realize that every non-commutative finite simple group is not solvable 
+            (reasoning provided in Aluffi pg. 211). Hence, we get our desired statement that every non-commutative finite group has even order. \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 4.4}]
+        \begin{quote}
+            \Solution First, we realize that we are searching for a polynomial $\sum_{n = 0}^\infty p(n)x^n$ where $p(n)$ denotes the number of partitions of an integer $n$.
+            We claim that the given product is actually equivalent to this polynomial. In order to make sense of this product, we realize that each term in the product is 
+            simply the form of a geometric series. This means that this product can be re-written as 
+            \begin{gather}\label{partition-product}
+                (1 + x + x^2 + x^3 + \dots)(1 + x^2 + x^4 + x^6 + \dots)(1 + x^3 + x^6 + \dots)\dots
+            \end{gather} Now, I claim that picking monomials from each term in \eqref{partition-product} will allow us to construct arbitrary partitions of an integer $n$. 
+            Let the monomial chosen from the $i$-th parenthesis $1+x^i+x^{2i}+x^{3i}+\dots$ in \eqref{partition-product} represent the number of times the part $i$ appears in the partition. 
+            In particular, if we choose the monomial $x^{c_ii}$ from the $i$-th parenthesis, then the value $i$ will appear $c_i$ times in the partition. Each selection of monomials makes one 
+            contribution to the coefficient of $x^n$ and in general, each contribution must be of the form $x^{1c_1} \cdot x^{2c_2} \cdot x^{3c_3}= x^{c_1+2c_2+3c_3\dots}$. Thus the coefficient of
+            $x^n$ is the number of ways of writing $n = c_1 + 2c_2 + 3c_3 +\dots$ where each $c_i \geq 0$. Now, we realize that this is just another way to write an integer partition, thus proving
+            our result. \qedsymbol
+        \end{quote}
+        \item[\textbf{Problem 4.6}]
+        \begin{quote}
+            \Solution We begin by contructing the class formula for $S_4$ by employing the fact that conjugacy classes are "isomorphic" to types in the symmetric group. Also, note 
+            that we use \eqref{type-count} in order to ascertain the size of each conjugacy class of $S_4$. First, note that there are 5 integer partitions of 4.
+            We list them along with the number of permutations of that type.
+            Namely,
+            \begin{itemize}
+                \item 4: $\frac{4!}{4} = 6$
+                \item 3 + 1: $\frac{4!}{3} = 8$
+                \item 2 + 2: $\frac{4!}{2*2*2!} = 3$
+                \item 2 + 1 + 1: $\frac{4!}{2*2!} = 6$
+                \item 1 + 1 + 1 + 1: $\frac{4!}{4!} = 1$
+            \end{itemize} By the above-mentioned fact that permutations of the same type are part of the same conjugacy class, we get that the class formula of $S_4$ is 
+            \begin{align*}
+                24 = 6 + 8 + 3 + 6 + 1
+            \end{align*} Now, we note that the order of a subgroup must divide the order of the group it is derived from and that normal subgroups are unions of conjugacy classes.
+            Now, we note that the divisors of $24$ are 24, 12, 8, 6, 4, 3, 2, 1. Finally, we realize that the the only divisors which can be expressed as the sum of elements of the 
+            class formula are 4, 12, and 24 (the case of 1 is handled by the fact that the identity element forms a normal subgroup) thus proving that the order of any normal subgroup of
+            $S_4$ is 1, 4, 12, or 24. \qedsymbol 
+        \end{quote}
+        \item[\textbf{Problem 4.7}]
+        \begin{quote}
+            \Solution In order to prove this result, we begin by defining an "adjacency" function for a given transposition called $\delta$. For a 2-cycle $\sigma = (ab)$. 
+            This function $\delta$ is defined such that 
+            \begin{equation*}
+                \begin{cases}
+                    \delta(\sigma) = 1 & \mbox{if a and b are one position away from each other} \\
+                    \delta(\sigma) = 0 & \mbox{if a and b are not adjacent} \\
+                \end{cases}
+            \end{equation*}
+            Realize that we are talking about 1 position away in terms of cycle notation, therefore $\delta((1n)) = 1$. As another example, $\delta((25)) = 0$ because 2 and 5 are more than 
+            position away from each other in $S_n$.
+            We now prove the result by showing that our two given permutations can generate all transpositions and thus generate the entirety of $S_n$.
+            First, we realize that our two given cycles $(12)$ and $(12\dots n)$ can generate every "adjacent" permuation through repeated conjugation of $(12)$ by $(12\dots n)$. We are given 
+            in the text that conjugation is equvalent to acting on the right on each element in the cycle by the inverse of the permuation being conjugated by. In our case, we begin by noting 
+            that the inverse of our permuation $(12\dots n)$ is $(nn-1n-2\dots 1)$ this means that conjugating $(12)$ with $(12\dots n)$ will result in $(n1)$. Conjugating again will result in 
+            $(n-1n)$. Continuing to conjugate will continue to move our sliding window over the entirery of $S_n$ and give us every transposition $\sigma$ such that $\delta(\sigma) = 1$ Now, we realize
+            that once we have these adjacent transpositions, it is trivial to contruct any other transposition. For example, consider $(13)$ in $S_4$, this is not an adjacent transposition, however, it 
+            is obviously equivalent to the conjugation of two adjacent transpositions $(12)$ and $(23) = (23)(12)(32)$. Using this method, we can generate any transposition of a "distance" 2 from each other.
+            We can then continue with equivalent reasoning in order to generate a transposition of any "distance". Since we have shown that our two permutations can generate all transpositions, we know that it
+            can generate all of $S_n$. \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 4.10}]
+        \begin{quote}
+            \Solution First, consider the Young Diagram for permutations of type $[n]$. Trivially, there are $n!$ ways to fill this Young Diagram with $n$ elements. Naively, we would think that there are $n!$ $n$ cycles in $S_n$. 
+            However, we realize that for any permutation $\sigma$ of type $[n]$ that we can shift the elements in 
+            the Young diagram over by 1 $n$ times and generate distinct permutations of the elements that all describe the same cycle [because, (in $S_4$), $(1234) = (2341)$]. This means that we must divide out these equivalent 
+            permutations in order to get the number of $n$-cycles which implies that number of $n$-cycles is $n!/n = (n-1)!$.
+            More generally, we realize that we can apply similar combinatoric reasoning to get the number of elements of any type. I believe an example will illustrate this best.
+            Consider the type $[2, 1, 1, 1]$ in $S_5$. I claim that there are $5! / 2*3! = 10$ elements of this type. The reasoning is as follows: first, we note that there are $5!$ ways to arrange 5 elements. Then, we realize that 
+            we any elements placed in the 2-cycle are the same whether they are in the form $(ab)$ or $(ba)$, we thus divide by 2. Next, we realize that there are $3!$ ways to permute the 3 ones in our type. All of these permutations
+            will result in an equivalent permuation so we divide by $3!$. This gives us our formula $5! / 2*3!$. In the general case, we define the following formula where $N(t)$ is the number of elements of a provided type $t$. Here,
+            $t_i$ is the i-th entry of $[\cdot, \cdot, \dots]$, $k$ is the length of $t$, and $C(l)$ is the number of times and integer $l$ appears in the type.
+            \begin{equation}\label{type-count}
+                N(t) = \frac{n!}{(\prod_{i = 1}^k t_i) * (\prod_{l = 1}^n C(l)!)} \qed
+            \end{equation}
+        \end{quote}
+    \end{enumerate}
+    Also, just wanted to give a quick apology for linking you to places on the internet for this HW. I really felt that the textbook didn't explain composition series that well so I spent a lot of time researching them online.
+\end{document}

@@ -1,0 +1,211 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage[margin = 1in]{geometry}
+\usepackage[mathscr]{euscript}
+
+\title{Honors Algebra HW5}
+\author{Daniel Weber dweber11}
+
+\newcommand{\Solution}{\textit{Solution: }}
+
+
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item[\textbf{Problem 10.2}]
+            \begin{quote}
+                \Solution We begin by proving that the identity element of the $\cdot$ function is the same as the identity element of $\circ$.
+                Since the $\circ$ operation is a homomorphism with respect to $\cdot$, the following holds true.
+                \begin{equation}
+                    (g \cdot g') \circ (h \cdot h') = (g \circ h) \cdot (g' \circ h')
+                \end{equation}
+                Now, we choose $g' = h' = e_\cdot$ in order to get
+                \begin{equation}
+                    \begin{gathered}
+                        (g \cdot e_\cdot) \circ (h \cdot e_\cdot) = (g \circ h) \cdot (e_\cdot \circ e_\cdot) \\
+                        g \circ h = (g \circ h) \cdot (e_\cdot \circ e_\cdot)
+                    \end{gathered}
+                \end{equation}
+                which implies that that the identiy element with respect to $\cdot$ is the same as the identity element with respect to $\circ$
+                ($e_\cdot = e_\circ = e$).
+                Next, we use this to show that $\circ$ and $\cdot$ coincide. Consider $x, y \in G$
+                \begin{equation}
+                    x \circ y = (x \cdot e) \circ (e \cdot y) = (x \circ e) \cdot (y \circ e) = x \cdot y
+                \end{equation}
+                Note that the inner equality in (3) is true by (1). \qedsymbol
+            \end{quote} 
+        \item[\textbf{Problem 10.5}]
+            \begin{quote}
+                \Solution I claim that a group object in {\tt Grp} is simply a group (i.e. every object in {\tt Grp} is a group object). 
+                I show this to be true by showing the existence of the morphisms which make the diagrams in the text commute. The function
+                $m:G \times G \to G$ is simply the binary operation that we equip our group with. In the case of a standard group, we 
+                typically call this multiplication. For $g, h \in G$, $m(g, h) = gh$. The identity map $e:1 \to G$ simply maps 
+                $1 \mapsto e = id_G$. Finally, the map $i: G \to G$ simply maps every element in $G$ to its inverse, for $g \in G, \;
+                g \mapsto g^{-1}$. It should be readily apparent to the reader that the choice of these functions make the diagrams
+                commute, but I will also explain it briefly. The first diagram is simply stating that our group equipped with our binary
+                operation $m$ is associative, a fact which we know to be true of groups. The next two diagrams are simply confirming the
+                existence of an identity whose binary operation with an element of $G$ returns that element of $G$. Our mapping of $1 \mapsto
+                id_G$ will obviously satisfy these diagrams. Finally, the last two diagrams are confirming the existence of inverses by saying
+                that a binary operation of elements $m(g, i(g)) = id_G = m(i(g), g)$. Our choice of a function $i$ which maps $g \mapsto g^{-1}$
+                satisfies this property. \qedsymbol
+            \end{quote}
+        \item[\textbf{Problem 1.5}]
+            \begin{quote}
+                \Solution We prove the assertion to be false via a counter-example. Consider the ring $R = \mathbb{Z}/12\mathbb{Z}$. Elements $[2]_{12}$
+                and $[3]_{12}$ are zero divisors in $R$ because $[2]_{12}*[6]_{12} = [0]_{12}$ and $[3]_{12}*[4]_{12} = [0]_{12}$. However,
+                the element $[2]_{12}+[3]_{12} = [5]_{12}$ is not a zero divisor in R because the $gcd(5, 12) = 1 \implies$ that $[5]_{12}*b = 0$
+                only when $b = 0$. (We proved this in an earlier section of the book). \qedsymbol
+            \end{quote}
+        \item[\textbf{Problem 1.6}]
+            \begin{quote}
+                \Solution We prove this using the binomial theorem. First, assume that $n, m \in \mathbb{Z}$ such that $a^j = 0$ and $b^l = 0$
+                and WLOG, assume that $j > l$. Then, I claim that $(a + b)^{2(j+1)} = 0$ thus rendering $a + b$ nilpotent. The proof is as follows,
+                by the Binomial Theorem, $(a + b)^{n} = \sum_{k = 0}^{n} \binom{n}{k}a^{n-k}b^k$. By choosing such a high power to raise $(a + b)$
+                we ensure that for every term in the sum, either $(n - k) >= j$ or $k >= l$. Since this is the case, every term in the sum will equal
+                zero and $(a + b)$ will be nilpotent. To show this more explicitly, the point in the sequence when the $min(k, n - k)$ is highest is 
+                directly in the middle of the sequence. At this point, $k = \frac{n}{2}$ and $n - k$ is within one of this number or equal to it 
+                (depending on whether n is even or odd). With our choice of exponent, $\frac{2(j+1)}{2} = j + 1 > j$. Therefore, every term in the
+                sequence is nilpotent. We next show that the multiplication need not be commutative for this result to hold with an example from linear algebra.
+                \begin{equation*}
+                    a = \begin{pmatrix}
+                        0 & 1 & 0 \\
+                        0 & 0 & 0 \\
+                        0 & 0 & 0
+                    \end{pmatrix} \qquad
+                    b = \begin{pmatrix}
+                        0 & 0 & 0 \\
+                        0 & 0 & 0 \\
+                        1 & 0 & 0
+                    \end{pmatrix} \qquad
+                    a + b = \begin{pmatrix}
+                        0 & 1 & 0 \\
+                        0 & 0 & 0 \\
+                        1 & 0 & 0
+                    \end{pmatrix}
+                \end{equation*}
+                $a^2 = 0$ and $b^2 = 0$ and $(a+b)^3 = 0$ showing that all these matrices are nilpotent. \qedsymbol
+            \end{quote}
+        \item[\textbf{Problem 1.7}]
+        \begin{quote}
+            \Solution 
+            \begin{quote}
+                ($\Rightarrow$) If $m$ is nilpotent in $\mathbb{Z}/n\mathbb{Z}$, then $n \vert m^k$ for some $k \in \mathbb{Z}$.
+                Let's denote that prime factorization of $m$ as follows. $m = \prod_{i = 0}^n p_i^{z_i}$ where each $p_i$ is a distinct
+                prime number and each $z_i$ is the number of times that the respective prime appears in the product. It is obvious due to the
+                nature of multiplication that raising $m$ to any power $k$ would only change the $z_i$ parts of product while not fundamentally
+                changing which primes are present in our product. If $n \vert \prod_{i = 0}^n p_i^{z_i*k}$ then every prime factor comprising $n$
+                must also be present in our factorization of $m$. Therefore, every prime factor of $n$ must divide $m$.
+            \end{quote}
+
+            \begin{quote}
+                ($\Leftarrow$) If $m$ is divisible by all prime factors of n, then we must simply raise $m$ to a sufficiently high enough
+                power to ensure that $n \vert m^k$ which would make $m$ nilpotent in $\mathbb{Z}/n\mathbb{Z}$. Let's denote the prime factorization
+                of n as follows. $n = \prod_{i = 0}^n s_i^{y_i}$. I claim that if we choose $k = max(y_i)$ for $0 <= i <= n$ then we will ensure that
+                $n \vert m^k$. The reason for this is simple, since we know that $n$ shares all its prime factors with $m$, we must only ensure
+                that the power of these prime factors in $n$'s prime factorization is not too high for the respective power in the prime factorization
+                of $m$. By choose $k$ to be the greatest $y_i$, we ensure that every element of the prime factorization of $n$ product is also
+                present in the factorization of $m$, thus ensuring that $n \vert m^k$. \qedsymbol
+            \end{quote}
+
+
+        \end{quote} 
+        \item[\textbf{Problem 1.10}]
+            \begin{quote}
+                \Solution We begin by denoting the (at least) two left inverses of $a$ in $R$ as $u, v$.
+                Assume by contradiction that $\exists b \in R, \: b \neq 0$ such that $ab = 0$ (i.e. $a$ is a left-zero-divisor).
+                Then, $uab = u0 \implies b = 0$. Our assumption was that $b \neq 0$. However, we have shown the opposite to be true.
+                Next, we prove that a is a right-zero-divisor. Consider the expression $(u - v)a = ua - va = 1 - 1 = 0$. Since we have 
+                found an element such that right-multiplication by $a$ results in zero, we have proven that $a$ is a right-zero-divisor.
+                \qedsymbol
+
+            \end{quote} 
+        \item[\textbf{Problem 1.12(iii)}]
+            \begin{quote}
+                \Solution In order to show that $\mathbb{H}$ is a division ring, we must show that every element in $\mathbb{H}$ is a 2-sided unit.
+                First, consider an arbitrary element $a + bi + cj + dk \in \mathbb{H}$. I claim that the element $\frac{a-bi-cj-dk}{(a+bi+cj+dk)(a-bi-cj-dk)}$
+                is the two sided inverse of our arbitrary element.
+                \begin{equation*}
+                    \begin{gathered}
+                        (a + bi + cj + dk)*\frac{a-bi-cj-dk}{(a+bi+cj+dk)(a-bi-cj-dk)} = 1 \\
+                        \frac{a-bi-cj-dk}{(a+bi+cj+dk)(a-bi-cj-dk)}*(a + bi + cj + dk) = 1
+                    \end{gathered}
+                \end{equation*}
+            \end{quote}
+            The top expression is immediate and the bottom expression follows from the fact that multiplication and addition are 
+            commutative in $\mathbb{H}$. \qedsymbol
+        \item[\textbf{Problem 1.14}]
+            \begin{quote}
+                \Solution Consider two polynomials $f(x) = \sum_{i = 0}^n a_ix^i$ and $g(x) = \sum_{i = 0}^m b_ix^i$. Assume WLOG that $n >= m$.
+                Now, consider the sum $f(x) + g(x) = \sum_{i = 0}^n (a_i + b_i)x^i$. Now, note that since addition of polynomials only
+                touches their coefficients and not the variable $x$, we must only consider the coeffecient of the highest order term in 
+                the sum. If $n > m$, then this coeffecient will remain untouched and the $deg(f(x) + g(x)) = deg(f(x))$. If $n = m$, then
+                the coeffecient of the highest order term will change, but it is impossible for it to grow larger. If $a_n = -b_n$, then 
+                the highest order term will dissapear and the $deg(f(x) + g(x)) < max(deg(f(x)), deg(g(x)))$. However, if this is not the
+                case, the coeffecient on the highest order term will change but the degree will remain intact.
+                Now take the product $f(x)g(x) = \sum_{i = 0}^{(n+m)}(\sum_{j = 0}^ia_jb_{i-j})x^i$. One key observation that must be 
+                made is that $x^n*x^m = x^{n+m}$. This means that our product will likely have degree $n+m$. Now, it suffices to show 
+                that the coeffecient of this term will be non-zero in order to prove our result. For the sake of this part of the argument
+                let's assume WLOG that $m >= n$ (because we want to be fair to all our coeffecient :)). Then, the coeffecient of $x^{n+m}$
+                is $a_n*b_m$. We know that this coeffecient is non-zero because the $deg(f(x)) = n$ and the $deg(g(x)) = m$ (and we are given
+                that $R$ is an integral domain so the product of non-zero inputs cannot be zero). Therefore, the $deg(f(x)g(x)) = deg(f(x)) + deg(g(x))$.
+                \qedsymbol
+            \end{quote}
+        \item[\textbf{Problem 1.15}]
+            \begin{quote}
+                \Solution
+
+                \begin{quote}
+                    ($\Rightarrow$) The forward direction of this proof is trivial. Since every element in $R$ can be expressed just using
+                    the $x^0$ slot of $R[x]$, if $R[x]$ is an integral domain, then $R$ must also be an integral domain.
+                \end{quote}
+                    
+                \begin{quote}
+                    ($\Leftarrow$) We use our result from 1.14 regarding the degree of the product to prove this result. Assume by contradiction
+                    that $R$ is an integral domain and that $R[x]$ is not an integral domain. This means that there exists non-zero polynomials $f(x), g(x)$
+                    (meaning that $deg(f(x)) \neq 0, \; deg(g(x)) \neq 0$) but $f(x)g(x) = 0 \implies deg(f(x)g(x)) = 0$. However, we know this is a 
+                    contradiction because we proved above that the $deg(f(x)g(x)) = deg(f(x)) + deg(g(x))$. Since our assumption has caused us to arrive
+                    at a contradiction, we reject our assumption and conclude that if $R$ is an interal domain, then $R[x]$ must also be an integral
+                    domain. (EDGE CASE) The above argument works for most any polynomial, however, it is not necessarily true that non-zero polynomials
+                    have degree greater than 0. However, the only case when the above proof does not hold is when $f(x)$ and $g(x)$ are constant terms.
+                    Thankfully, our assumption already tells us that $R$ is an integral domain and we therefore have nothing to prove for this case. \qedsymbol
+                \end{quote}
+            \end{quote} 
+        \item[\textbf{Problem 1.16(i)}]
+            \begin{quote}
+                \Solution
+                \begin{quote}
+                    ($\Rightarrow$) The forward direction of this proof is again quite trivial. If $f(x) = \sum_{i = 0}^\infty a_ix^i$
+                    is a unit, then there exists a $g(x)$ such that $f(x)g(x) = \sum_{i = 0}^\infty c_ix^i = 1$. Note that this means that 
+                    for every coeffecient $c_i, i > 0$ in the sum, $c_i = 0$ and that $c_0 = 1$. Next, note that the coeffecient $c_0 = a_0b_0$
+                    based on how we define multiplication on polynomials. This implies that $\exists b_0$ such that $a_0b_0 = 1 = b_0a_0$. which
+                    implies that $a_0$ is a unit. (Note that we get that $a_0$ is a two sided unit because we are given that $f(x)$ is a two sided
+                    unit. If $f(x)$ were a one sided unit, then we would need an additional property such as commutativity of multiplication to show
+                    that $a_0$ is a two sided unit.)
+                \end{quote}
+
+                \begin{quote}
+                    ($\Leftarrow$) We prove the backward direction via construction. Fix $f(x) = \sum_{i = 0}^\infty a_ix^i$. Then, we must construct
+                    a $g(x)$ such that $f(x)g(x) = 1$. We will show how to do this for a one-sided unit, the argument is identical to find a polynomial for
+                    the other side of $f(x)$. We begin by noting that $a_0$ is a unit. This means that there exists an element $x \in R$ such that $a_0x = 1$.
+                    Let $(b_i)$ indicate an ordered list of the coeffecients of $g(x)$, choose $b_0 = x$. Next, we note that every coeffecient other than the 
+                    constant term in the product $f(x)g(x)$ must be zero. We will now construct the rest of our $b_i$ coeffecients in order to make this so.
+                    First, note that the coeffecient of every element in the power series is given by $\sum_{j = 0}^ia_jb_{i-j}$ where $i$ is the position of
+                    which coeffecient we want to get. Now, let us proceed with the construction of the $b$ coeffecients. The coeffecient for $x$ is $a_0b_1 + a_1b_0$
+                    Note that every variable in this sum is already fixed except for $b_1$, therefore, we fix $b_1$ such that $a_0b_1 + a_1b_0 = 0 \implies 
+                    b_1 = \frac{-a_1b_0}{a_0}$. We next examine the coeffecient on $x^2$ which equals $a_0b_2 + a_1b_1 + a_2b_2$. Note again that every variable
+                    in this expression is fixed except $b_2$. We thus fix $b_2$ such that $a_0b_2 + a_1b_1 + a_2b_2 = 0$ as above. Note that due to how the 
+                    coeffecients are constructed ($\sum_{j = 0}^ia_jb_{i-j}$), every time we look for the coeffecient of the next term, we will add one additional
+                    non-fixed variable to the sum. We can continue using this degree of freedom to ensure that every coeffecient of non-constant terms in our
+                    product is equal to zero. 
+                \end{quote}
+                Finally, the inverse of $1 - x$ in $R[[x]]$ is simply the Taylor Series expansion (specifically Maclaurin) of $\frac{1}{1-x}$ which is
+                \begin{equation*}
+                    \sum_{n = 0}^\infty x^n = 1 + x + x^2 + x^3\dots \qed
+                \end{equation*}
+            \end{quote}
+    \end{enumerate}
+\end{document}

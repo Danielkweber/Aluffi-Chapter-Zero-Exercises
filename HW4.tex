@@ -1,0 +1,177 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage[margin = 1in]{geometry}
+\usepackage[mathscr]{euscript}
+
+\title{Honors Algebra HW4}
+\author{Daniel Weber dweber11}
+
+\newcommand{\Solution}{\textit{Solution: }}
+\newcommand{\R}{$\mathbb{R}$}
+
+
+\begin{document}
+    \maketitle
+    \begin{enumerate}
+        \item[\textbf{Problem 7.7}]
+            \begin{quote}
+                \Solution We begin by noting that to prove a subgroup $N$ is normal, we must show that $gNg^{-1} = N$. In
+                our example, every element on subgroup $N$ is of order $n$ (i.e. $h \in N, h^n = e$). 
+                Therefore, we do the following calculation.
+                \begin{equation*}
+                    \begin{gathered}
+                        (gNg^{-1})^n = N^n \\
+                        gN^ng^{-1} = e \\
+                        geg^{-1} = e \\
+                        e = e
+                    \end{gathered}
+                \end{equation*}
+                Since we have show that $gNg^{-1} = N$, our subgroup is normal. \qedsymbol
+            \end{quote} 
+        \item[\textbf{Problem 7.11}]
+            \begin{quote}
+                \Solution Consider $H = [G, G]$. Note that every element of $H$ can be represented in the form $aba^{-1}b^{-1}$.
+                Now, consider the $h \in H, ghg^{-1}$.
+                \begin{equation*}
+                    \begin{gathered}
+                        ghg^{-1} = ghg^{-1}e \\
+                        ghg^{-1} = ghg^{-1}(h^{-1}h) \\
+                        ghg^{-1} = (ghg^{-1}h^{-1})h
+                    \end{gathered}
+                \end{equation*}
+                Now, note that $ghg^{-1}h^{-1}$ is in the form $aba^{-1}b^{-1}$ and is hence part of the subgroup $[G, G]$.
+                Also, note that a subgroup is closed so multiplication of two elements in it results in another element of 
+                the subgroup. Therefore, $ghg^{-1} = (ghg^{-1}h^{-1})h \in H$, thus proving that $[G, G]$ is normal. Next,
+                we prove commutativity of $[G, G]$. This means that we are trying to show that $\forall x, y \in G, \;
+                xyH = yxH \therefore x^{-1}y^{-1}xyH = H$. Now, note that $x^{-1}y^{-1}xy$ is in 
+                $[G, G] = H \implies x^{-1}y^{-1}xyH = H$. Therefore, the result is proven. \qedsymbol
+            \end{quote}
+        \item[\textbf{Problem 7.13}]
+            \begin{quote}
+                We begin by noting that the result of exercise 7.12 allows shows that $F(A) / [F(A), F(A)] \backsimeq F^{ab}(A)$. 
+                Next we note that since taking the quotient group with the commutator subgroup simply adds an abelian structure to 
+                the group, doing it on both sides of our given isomorphism preserves the isomorphism. Therefore, 
+                $F^{ab}(A) \backsimeq F(A) / [F(A), F(A)] \backsimeq F(B) / [F(B), F(B)] \backsimeq F^{ab}(B)$. Next, we note that
+                Proposition 5.6 in the book tells us that $F^{ab}(A) \backsimeq \mathbb{Z}^{\oplus A}$. Therefore, 
+                $\mathbb{Z}^{\oplus A} \backsimeq F^{ab}(A) \backsimeq F^{ab}(B) \backsimeq \mathbb{Z}^{\oplus B}$. In this form, it is clear to see that if $A$
+                is finite, then $B$ must be finite as well. The reason for this is because the above isomorphism would not hold if one of
+                these sets were infinite and the other were not. \qedsymbol
+            \end{quote}
+        \item[\textbf{Problem 7.14}]
+            \begin{quote}
+                \Solution We want to show that for $f \in Aut(G), \: f \circ \gamma_g \circ f^{-1} \in Inn(G)$.
+                \begin{equation*}
+                    \begin{gathered}
+                        f \circ \gamma_g \circ f^{-1} (a) = f(gf^{-1}(a)g^{-1}) \\
+                        = f(g)f(f^{-1}(a))f(g^{-1}) \\
+                        = f(g)af(g^{-1}) \\
+                        = f(g)af(g)^{-1}
+                    \end{gathered}
+                \end{equation*}
+                Which is the form of an inner automorphism. Therefore, $Inn(G)$ is normal. \qedsymbol
+            \end{quote}
+        \item[\textbf{Problem 8.7}]
+        \begin{quote}
+            \Solution In order to prove this result, we first construct the inclusion functions into the 
+            coproduct using the universal property of quotients. We then define the coproduct homomorphism
+            element-wise to show that our presentation satisfies the coproduct. First, consider the functions
+            $i_A: (A \vert \mathcal{R}) \to (A \cup A' \vert \mathcal{R} \cup \mathcal{R'})$ and 
+            $i_{A'}: (A' \vert \mathcal{R'}) \to (A \cup A' \vert \mathcal{R} \cup \mathcal{R'})$. We can construct these 
+            functions using the universal property of quotients. WLOG, we will consider the set $F(A)$. Now, consider a 
+            function $f: F(A) \to (A \cup A' \vert \mathcal{R} \cup \mathcal{R'})$. Clearly, $\mathcal{R} \subseteq ker f$.
+            Therefore, the universal property of quotients guarantees that there exists a group homomorphism 
+            $\varphi: F(A) / \mathcal{R} \to (A \cup A' \vert \mathcal{R} \cup \mathcal{R'})$. The same is true for the 
+            $A', R'$ presentation. Next, we construct a morphism $\alpha: (A \cup A' \vert \mathcal{R} \cup \mathcal{R'}) 
+            \to A$ for an arbitrary object $P$ which in order to make the coproduct diagram commute. We define this function
+            element-wise; for $g_A: (A \vert \mathcal{R}) \to P$ and $g_{A'}: (A' \vert \mathcal{R'}) \to P$ we define $\alpha$
+            as such
+            \begin{gather*}
+                \begin{cases}
+                    \alpha(i_A(a)) = g_A(a), \: a \in (A \vert \mathcal{R}) \\
+                    \alpha(i_{A'}(a')) = g_{A'}(a'), \: a' \in (A' \vert \mathcal{R'})
+                \end{cases}
+            \end{gather*}
+            This makes the coproduct diagram commute and we have thus proven that $(A \cup A' \vert \mathcal{R} \cup \mathcal{R'})$
+            satisfies the universal property of coproducts. \qedsymbol
+        \end{quote} 
+        \item[\textbf{Problem 8.21}]
+            \begin{quote}
+                We begin by defining a function $f: k \mapsto kH$ and noting that the $ker f = H \cap K$. This means that 
+                $K/K \cap H \backsimeq KH \backsimeq \{kH \vert k \in K\}$ by the universal property of quotients. 
+                Next, we also note that $HK/H \backsimeq \{kH \vert k \in K\}$. Therefore, $HK/H \backsimeq K/K \cap H$.
+                We now prove the formula shown in the problem. First, it is obvious that the index of our two above
+                isomorphic groups are of equivalent index. (Firstly, finite isomorphic groups must be of the same size. 
+                Secondly, we have shown that they are both isomorphic to ${kH \vert k \in K}$). Namely, 
+                \begin{equation*}
+                    \vert\frac{HK}{H}\vert = [HK : H] = |\frac{K}{K \cap H}|
+                \end{equation*}
+                which we have shown to be true above (by $\{kH \vert k \in K\}$). By Lagrange's Theorem, 
+                \begin{equation*}
+                    \begin{gathered}
+                        \frac{|HK|}{|H|} = [HK : H] = \frac{|K|}{|K \cap H|} \\
+                        \implies \frac{|HK|}{|H|} = \frac{|K|}{|K \cap H|} \\
+                        |HK| =  \frac{|H||K|}{|K \cap H|} \quad\qedsymbol
+                    \end{gathered}
+                \end{equation*}
+
+            \end{quote} 
+        \item[\textbf{Problem 9.10}]
+            \begin{quote}
+                I claim that the function $f: G/H \to H \backslash G$ such that $gH \mapsto (gH)^{-1}$ is a bijective mapping
+                between the set of left cosets and the set of right cosets. First, we verify that $(gH)^{-1} = H^{-1}g^{-1}$ 
+                is indeed a right coset of $G/H$. First, we realize that $H^{-1} = H$ because $H$ is a subgroup. Therefore, if 
+                we take the inverse of every element, we will just arrive back at $H$. Next, we note that $g^{-1}$ is an element
+                of $G$. Therefore, $H^{-1}g^{-1}$ is a right coset. To prove that this map is bijective, we just show that it is 
+                invertible. The function $\beta: (gH)^{-1} \mapsto gH$ is trivially the inverse of $f$. Therefore, there is a 
+                bijective mapping between the right and left cosets of $G/H$. \qedsymbol
+            \end{quote} 
+        \item[\textbf{Problem 9.12}]
+            \begin{quote}
+                We prove this by the template provided in exercise 9.11. First, we interpret the action of $G$ on $G/H$ as a 
+                homomorphism $\sigma: G \to S_n$. Next, we show that 
+                the $ker\sigma \subseteq H$. Consider the action $x \cdot gH$ for $x \in G$. The elements of the kernel are the
+                elements $x$ s.t. $xgH = gH$. In particular, this must be true when $gH = H$. Therefore, consider when $xH = H$,
+                this obviously occurs when $x \in H$ which shows that the $ker\sigma \subseteq H$. Since every kernel is normal,
+                we have found a normal subgroup $K \subseteq H$. Next, we note that $G/K$ ($K = ker\sigma$) is isomorphic to a subgroup
+                of $S_n$. Then, by Lagrange's Theorem, $[G : K]$ must have order dividing $n!$. In addition, because $K$ is a subgroup 
+                of $G$, $[G : K]$ must also divide $|G|$. \qedsymbol 
+            \end{quote}
+        \item[\textbf{Problem 9.15}]
+            \begin{quote}
+                We begin by noting that for a group action to be called "free", only the identity of the G can fix any element 
+                of the set being acted upon (i.e. if $ga = a$ then $g = e_G$). Next, we note that a group action on a Cayley graph
+                acts on the vertices of that graph. Now, we must prove that a group $G$ acts freely on its corresponding 
+                Cayley graph. To prove that the action is free, we must only realize that for any element $g \in G$ if $hg = g$ then 
+                $h = e_G$. Next, we must prove that this 
+                is a valid action. We do this by showing that this action preserves incidence in the graph. If two vertices 
+                $g_1, g_2 \in G$ are connected in the Cayley graph, then $\exists a$ such that $g_2 = g_1a$. Since we are 
+                considering a left action, the action obviously preserves incidence. Let $h \in G$, we assume that $g_2 = g_1a$
+                we want to show that $hg_2 = hg_1a$.
+                \begin{equation*}
+                    hg_2 = hg_1a \; \therefore \; h^{-1}hg_2 = h^{-1}hg_1a \; \therefore \; g_2 = g_1a
+                \end{equation*}
+                Thus showing that our action preserves incidence. 
+                
+                Next, we show that the corresponding Cayley graph of a free group is a tree. Assume by contradiction that there 
+                exists a cycle in the Cayley graph of a free group. This means that for an element $b \in F(A)$ we can multiply by 
+                the generators of $F(A)$ a finite number of times and return to $b$. Now, consider $bg_ig_i...g_i = b$ where the 
+                $g_i$ represent generators of $F(A)$. Now, we left multiply by $b^{-1}$ to get $g_ig_i...g_i = e$. However, 
+                we have no guarantee that this is the case in a free group (in fact, it is typically not the case). Therefore, 
+                we conclude that the Cayley graph of a free group must be acyclic and hence a tree. \qedsymbol
+            \end{quote} 
+        \item[\textbf{Problem 9.16}]
+            \begin{quote}
+                Consider the action of a free group $F(A)$ on a tree $\Gamma$ denoted by $\rho:F(A) \times \Gamma \to \Gamma$.
+                Now, consider a $S \subseteq F(A)$ which is a subgroup of $F(A)$. Note that the group action
+                $\rho_S:S \times \Gamma \to \Gamma$ obviously also acts freely on $\Gamma$ because it inherits the identity 
+                element from $F(A)$ and we have already assumed that only the identity element of $F(A)$ fixes any element of
+                $\Gamma$. Further, since $S \subseteq F(A)$ there are obviously no elements of $S$ which fix an element of $\Gamma$. 
+                Therefore, since a subgroup of $F(A)$ can act freely on a tree and every free group acts freely on a tree,
+                every subgroup of a free group must be free. \qedsymbol
+            \end{quote}
+    \end{enumerate}
+\end{document}
